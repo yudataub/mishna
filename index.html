@@ -1,0 +1,491 @@
+<!doctype html>
+<html lang="he" dir="rtl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>קטלוג משנה לכיתות א׳–ו׳ – הקול החמישי</title>
+<meta name="description" content="חומרי לימוד למורים במשנה: פרקי אבות (א׳–ב׳), תענית (ג׳), ראש השנה (ד׳), סוכה (ה׳) וברכות (ו׳) – מערכי שיעור, מצגות, דפי עבודה, מבחנים ומשחקים, מסודרים לפי מסכת, פרק ומשנה.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Heebo:wght@400;500;700;800&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#f6f7fb; --card:#fff; --ink:#1e2433; --muted:#6b7385; --line:#e6e8f0;
+  --accent:#4f46e5; --accent-soft:#eef0ff; --gold:#f59e0b; --chip:#f1f3f9;
+}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:Heebo,system-ui,sans-serif;font-size:16px;line-height:1.5}
+a{color:inherit}
+header{background:linear-gradient(135deg,#312e81,#4f46e5 60%,#7c3aed);color:#fff;padding:22px 16px 18px}
+header.hero-side .wrap{display:flex;align-items:center;gap:24px}
+header.hero-side .htext{flex:1 1 auto;min-width:0}
+header.hero-side .heroimg{flex:0 0 auto;width:min(42%,460px);height:210px;object-fit:cover;border-radius:16px;
+  box-shadow:0 10px 30px rgba(0,0,0,.35);border:3px solid rgba(255,255,255,.85)}
+@media (max-width:640px){header.hero-side .wrap{flex-direction:column-reverse;align-items:stretch;gap:12px}
+  header.hero-side .heroimg{width:100%;height:150px}}
+header.hero{background-size:cover;background-position:center 40%;min-height:250px;display:flex;align-items:flex-end;padding-top:34px;padding-bottom:26px}
+header.hero .wrap{width:100%}header.hero h1{font-size:2rem;text-shadow:0 2px 12px rgba(0,0,0,.45)}header.hero .sub{text-shadow:0 1px 8px rgba(0,0,0,.5)}
+@media (max-width:640px){header.hero{min-height:190px;background-position:center}header.hero h1{font-size:1.4rem}}
+.wrap{max-width:1100px;margin:0 auto}
+h1{margin:0;font-size:1.6rem;font-weight:800}
+.sub{opacity:.85;font-size:.95rem;margin-top:4px}
+.back{color:#fff;opacity:.8;font-size:.85rem;text-decoration:none}
+.tools{background:var(--bg);border-bottom:1px solid var(--line);padding:10px 16px}
+#totop{position:fixed;bottom:18px;left:18px;z-index:20;border:0;border-radius:999px;background:var(--accent);color:#fff;font:inherit;font-weight:700;
+  font-size:.92rem;padding:10px 16px;box-shadow:0 6px 18px rgba(79,70,229,.4);cursor:pointer;display:none}
+#totop.show{display:block}
+.ctx{display:flex;align-items:center;gap:10px;flex-wrap:wrap;padding:14px 16px 0;font-size:1.25rem;font-weight:800;color:#1e1b4b}
+.ctxt{display:flex;align-items:baseline;gap:10px;flex-wrap:wrap;flex:1 1 auto}
+.ctx .view{flex:0 0 auto;align-self:center}
+.ctx .cn{font-size:.95rem;font-weight:500;color:var(--muted)}
+.tabsep{width:1px;align-self:stretch;background:#cfd3e3;margin:2px 4px}
+.tab.aux{border-style:dashed;background:#fbfbfe}
+.pglink{font-size:.9rem;font-weight:700;text-decoration:none;color:#fff;background:linear-gradient(135deg,#4f46e5,#7c3aed);border-radius:999px;padding:4px 14px;box-shadow:0 3px 10px rgba(79,70,229,.3)}
+.tab.grp{font-weight:700}.tab.grp.in{border-color:var(--accent);color:var(--accent);box-shadow:inset 0 -3px 0 var(--accent)}
+.tabs.sub{padding-top:0;margin-top:-4px}.tabs.sub:empty{display:none}
+.tabs.sub .tab{font-size:.88rem;padding:5px 9px 5px 10px;background:#fbfbff}.tabs.sub .tab.on{background:var(--accent)}
+.search{display:flex;gap:8px;flex-wrap:wrap;align-items:center}
+.search input{flex:1 1 260px;font:inherit;padding:10px 14px;border:1px solid var(--line);border-radius:12px;background:#fff}
+.search select{font:inherit;padding:9px 10px;border:1px solid var(--line);border-radius:12px;background:#fff;max-width:100%}
+.chips{display:flex;gap:6px;flex-wrap:wrap;margin-top:8px;align-items:center}
+.lbl{font-size:.8rem;color:var(--muted);margin-inline-end:2px;white-space:nowrap}
+.fld{display:flex;flex-direction:column;gap:2px;flex:0 1 auto}
+.fld label{font-size:.72rem;color:var(--muted);padding-inline-start:4px}
+.active{display:flex;gap:6px;flex-wrap:wrap;margin-top:8px;align-items:center}
+.active:empty{display:none}
+.tag{background:#1e1b4b;color:#fff;border:0;border-radius:999px;padding:3px 11px;font:inherit;font-size:.8rem;cursor:pointer}
+.tag b{margin-inline-start:6px;opacity:.8}
+.clearall{background:none;border:0;color:var(--accent);font:inherit;font-size:.8rem;cursor:pointer;text-decoration:underline}
+.chip{border:1px solid var(--line);background:#fff;border-radius:999px;padding:5px 12px;font:inherit;font-size:.88rem;cursor:pointer}
+.chip.on{background:var(--accent);border-color:var(--accent);color:#fff}
+.tabs{display:flex;gap:7px;flex-wrap:wrap;padding:14px 16px 4px}
+.tab{flex:0 0 auto;border:1px solid var(--line);background:#fff;border-radius:12px;padding:7px 10px 7px 12px;font:inherit;font-size:.93rem;cursor:pointer;white-space:nowrap;display:inline-flex;align-items:center;gap:6px}
+.tab:hover{border-color:#c7cbe0}
+.tab .n{background:var(--chip);color:var(--muted);font-size:.75rem;border-radius:999px;padding:0 7px;font-weight:500}
+.tab.on{background:var(--accent);color:#fff;border-color:var(--accent);font-weight:700;box-shadow:0 3px 10px rgba(79,70,229,.3)}
+.tab.on .n{background:rgba(255,255,255,.22);color:#fff}
+/* picture tabs: a tab with "img" in data.json becomes a large card (e.g. one per tractate) */
+.tabs.big{display:grid;grid-template-columns:repeat(auto-fill,minmax(160px,1fr));gap:14px;padding:18px 16px 6px}
+.tabs.big .tab.tile{position:relative;flex-direction:column;align-items:stretch;gap:0;padding:0;overflow:hidden;white-space:normal;border-radius:18px;
+  border:2px solid transparent;background:#fff;box-shadow:0 3px 14px rgba(30,36,51,.10);text-align:right;transition:transform .15s,box-shadow .15s}
+.tabs.big .tab.tile:hover{transform:translateY(-3px);box-shadow:0 8px 22px rgba(30,36,51,.16);border-color:#c7cbe0}
+.tabs.big .tab.tile img{display:block;width:100%;aspect-ratio:16/10;object-fit:cover;background:#eef0f6}
+.tabs.big .tab.tile .tl{display:flex;flex-direction:column;gap:2px;padding:10px 12px 12px;flex:1 1 auto}
+.tabs.big .tab.tile .tl b{font-size:1.08rem;font-weight:800;color:#1e1b4b;line-height:1.25}
+.tabs.big .tab.tile .tl small{font-size:.84rem;color:var(--muted);font-weight:500}
+.tabs.big .tab.tile .n{position:absolute;top:9px;left:9px;background:rgba(255,255,255,.93);color:#1e1b4b;font-size:.8rem;font-weight:700;
+  padding:2px 9px;box-shadow:0 2px 6px rgba(0,0,0,.15)}
+.tabs.big .tab.tile.on{border-color:var(--accent);box-shadow:0 6px 20px rgba(79,70,229,.35);transform:translateY(-3px)}
+.tabs.big .tab.tile.on .tl{background:var(--accent)}.tabs.big .tab.tile.on .tl b{color:#fff}.tabs.big .tab.tile.on .tl small{color:#dfe0ff}
+@media (max-width:640px){.tabs.big{grid-template-columns:1fr 1fr;gap:10px;padding:12px 12px 4px}
+  .tabs.big .tab.tile .tl{padding:7px 9px 9px}.tabs.big .tab.tile .tl b{font-size:.95rem}.tabs.big .tab.tile .tl small{font-size:.76rem}}
+main{padding:8px 16px 60px}
+.cat{background:var(--card);border:1px solid var(--line);border-radius:16px;margin:26px 0;overflow:hidden;box-shadow:0 2px 10px rgba(30,36,51,.06)}
+.cat>summary{list-style:none;cursor:pointer;padding:14px 18px;font-weight:800;font-size:1.18rem;display:flex;justify-content:space-between;align-items:center;
+  background:linear-gradient(90deg,var(--cs,#eef0ff),#fff 70%);border-bottom:2px solid var(--cs,#e0e4ff);color:#1e1b4b;border-top:5px solid var(--cc,#4f46e5)}
+.cat>summary .ce{background:var(--cs);border-radius:10px;padding:2px 6px}
+.cat>summary .ce{font-size:1.35rem;margin-inline-end:8px}
+.cat>summary::-webkit-details-marker{display:none}
+.cat>summary .cnt{background:var(--chip);color:var(--muted);border-radius:999px;padding:1px 10px;font-size:.82rem;font-weight:500}
+.row{display:flex;gap:10px;align-items:center;padding:9px 16px;border-top:1px solid var(--line);flex-wrap:wrap}
+.row:hover{background:#fafbff}
+.ic{font-size:1.2rem;width:38px;height:38px;border-radius:10px;display:flex;align-items:center;justify-content:center;flex:0 0 auto}
+.th{width:62px;height:80px;border-radius:8px;flex:0 0 auto;overflow:hidden;display:flex;align-items:center;justify-content:center;
+  font-size:1.5rem;border:1px solid var(--line);background:#f4f5fa;position:relative;text-decoration:none}
+.th img{width:100%;height:100%;object-fit:cover;object-position:top;display:block;background:#fff}
+.th.wide{width:96px;height:62px}
+.th .fb{display:none;width:100%;height:100%;align-items:center;justify-content:center}
+.th.noimg img{display:none}.th.noimg .fb{display:flex}
+#peek{position:fixed;z-index:50;pointer-events:none;display:none;background:#fff;border:1px solid var(--line);border-radius:10px;
+  box-shadow:0 12px 34px rgba(0,0,0,.22);padding:6px;max-width:340px}
+#peek img{display:block;max-width:326px;max-height:440px;border-radius:6px}
+.view{display:inline-flex;border:1px solid var(--line);border-radius:10px;overflow:hidden;background:#fff}
+.view button{border:0;background:none;font:inherit;font-size:.85rem;padding:6px 11px;cursor:pointer;color:var(--muted)}
+.view button.on{background:var(--accent);color:#fff;font-weight:700}
+.rows{display:block}
+.grid .rows{display:grid;grid-template-columns:repeat(auto-fill,minmax(210px,1fr));gap:14px;padding:14px}
+.grid .row{flex-direction:column;align-items:stretch;border:1px solid var(--line);border-radius:14px;padding:0 0 10px;gap:8px;background:#fff;overflow:hidden}
+.grid .row:hover{box-shadow:0 6px 18px rgba(30,27,75,.12)}
+.grid .th,.grid .th.wide{width:100%;height:auto;aspect-ratio:4/3;border:0;border-bottom:1px solid var(--line);border-radius:0;font-size:2.6rem}
+.grid .th.wide:not(.vid){background:#eceef4}.grid .th.wide:not(.vid) img{object-fit:contain;object-position:center;background:transparent}
+.grid .ti{flex:0 0 auto;padding:2px 12px 0}
+.grid .ti .name{font-size:1.06rem;line-height:1.45;display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden;min-height:2.9em}
+.grid .btns{padding:0 12px;margin-top:auto}
+.grid .side{padding:0 12px;justify-content:space-between}
+.ti{flex:1 1 240px;min-width:0}
+.ti .name{font-weight:600;font-size:1.02rem;word-break:break-word;line-height:1.35}
+.meta{display:flex;gap:5px;flex-wrap:wrap;margin-top:3px}
+.meta:empty{display:none}
+.badge{font-size:.68rem;border-radius:999px;padding:0 7px;background:var(--accent-soft);color:#4338ca;white-space:nowrap}
+.badge.tabname{background:#ecfdf5;color:#047857}
+.badge.grade{background:#fdf2f8;color:#be185d}
+.badge.new{background:#fff7ed;color:#c2410c}
+.btns{display:flex;gap:6px;flex-wrap:wrap}
+.btn{font-size:.8rem;font-weight:700;text-decoration:none;border:1px solid;border-radius:999px;padding:3px 12px;white-space:nowrap}
+.btn.dl{color:#475069;background:#fff;border-color:var(--line);padding:3px 9px}
+.btn .sz{font-weight:400;opacity:.75;margin-inline-start:6px;font-size:.72rem}
+.btn:hover{filter:brightness(.95);box-shadow:0 1px 3px rgba(0,0,0,.12)}
+.side{display:flex;align-items:center;gap:8px;flex:0 0 auto}
+.rate{border:1px solid var(--line);background:#fff;font:inherit;font-size:.82rem;color:#475069;cursor:pointer;border-radius:999px;padding:3px 11px;white-space:nowrap}
+.rate:hover{border-color:var(--line);color:var(--ink)}
+.rate.has{color:#b45309;font-weight:700}
+.picker{display:none;direction:ltr;background:#fff;border:1px solid var(--line);border-radius:999px;padding:2px 8px;box-shadow:0 4px 14px rgba(0,0,0,.1)}
+.picker.open{display:inline-flex}
+.picker button{border:0;background:none;padding:0 2px;font-size:1.25rem;color:#d4d7e0;cursor:pointer}
+.picker button.on,.picker button:hover{color:var(--gold)}
+.fav{border:0;background:none;font-size:1.15rem;cursor:pointer;color:#c8ccd8}
+.fav{font-size:1.35rem;line-height:1;color:#7d869c;border:1px solid var(--line);background:#fff;border-radius:999px;width:36px;height:32px}
+.fav:hover{color:#e11d48;border-color:#f5b5c4}.fav.on{color:#e11d48;border-color:#f5b5c4;background:#fff1f4}
+.empty{text-align:center;color:var(--muted);padding:40px 0}
+.more{display:block;margin:6px auto 12px;font:inherit;font-size:.9rem;border:1px solid var(--line);background:#fff;border-radius:10px;padding:6px 14px;cursor:pointer}
+.howto{font-size:.85rem;color:var(--muted);margin:10px 0 0}
+@media (max-width:640px){h1{font-size:1.3rem}
+  .tabs{gap:5px;padding:10px 12px 2px}.tab{font-size:.82rem;padding:5px 7px 5px 9px;border-radius:10px}.tab .n{font-size:.68rem}
+  .fld{flex:1 1 30%}.ctx{font-size:1.08rem;padding:10px 12px 0}.tabsep{flex-basis:100%;width:auto;height:0;margin:0;background:none}#totop{bottom:14px;left:14px}.fld select{width:100%}header{padding:14px 16px 12px}.sub{font-size:.85rem}
+  .chips{flex-wrap:nowrap;overflow-x:auto;padding-bottom:2px}.chip{flex:0 0 auto}
+  .tabs.sub{flex-wrap:nowrap;overflow-x:auto;padding-bottom:6px}.tabs.sub .tab{font-size:.8rem}
+  .search select{flex:1 1 40%}.tools{padding:8px 12px}.row{padding:9px 12px}.side{width:100%;justify-content:flex-start;padding-inline-start:0}
+  .th{width:50px;height:64px}.th.wide{width:80px;height:52px}.ti{flex:1 1 calc(100% - 100px)}
+  .grid .rows{grid-template-columns:1fr 1fr;gap:10px;padding:10px}.grid .ti{flex:0 0 auto}.grid .ti .name{font-size:.92rem}}
+</style>
+</head>
+<body>
+<header><div class="wrap">
+  <a class="back" href="https://www.kol-toda.co.il/t/books.html">→ לכל הקטלוגים באתר הקול החמישי</a>
+  <h1 id="title">קטלוג חומרים</h1>
+  <div class="sub" style="font-weight:700;opacity:1">ספריית חומרים למורים</div>
+  <div class="sub" id="sub"></div>
+</div></header>
+
+<div class="tools"><div class="wrap">
+  <div class="search">
+    <input id="q" type="search" placeholder="חיפוש בכל הפרשות – למשל: מרגלים, תפזורת, מבחן…" autocomplete="off">
+    <div class="fld"><label for="grade">כיתה</label><select id="grade"><option value="">כל הכיתות</option></select></div>
+    <div class="fld"><label for="src">מקור</label><select id="src"><option value="">כל המקורות</option></select></div>
+    <div class="fld"><label for="sort">סדר</label><select id="sort"><option value="cv">לפי פרק ופסוק</option><option value="abc">לפי א״ב</option><option value="rate">המדורגים קודם</option></select></div>
+  </div>
+  <div class="chips"><span class="lbl">סוג חומר:</span><span id="fmt" class="chips" style="margin:0"></span></div>
+  <div class="active" id="active"></div>
+</div></div>
+
+<div class="wrap">
+  <div class="tabs" id="tabs"></div>
+  <div class="tabs sub" id="subtabs"></div>
+  <div class="ctx"><span id="ctx" class="ctxt"></span>
+    <span class="view" role="group" aria-label="תצוגה"><button data-view="grid">▦ כרטיסים</button><button data-view="list">☰ רשימה</button></span></div>
+  <main id="main"><div class="empty">טוען…</div></main>
+</div>
+
+<script>
+// icon, button text, colour, background – the same colours as the Neviim catalogs
+const FMT = {pdf:["📕","PDF","#e11d48","#fde8ec"],word:["📘","Word","#2563eb","#e8eefd"],ppt:["🖥️","מצגת","#ea580c","#fdece0"],
+  video:["🎬","סרטון","#dc2626","#fde8e8"],game:["🎮","משחק מקוון","#7c3aed","#f1eafe"],web:["🔗","קישור","#4f46e5","#eceafd"],
+  folder:["📁","תיקייה","#ca8a04","#fdf6e0"],excel:["📗","Excel","#16a34a","#e7f7ec"],image:["🖼️","תמונה","#0d9488","#e0f5f1"],
+  audio:["🎵","שמע","#0891b2","#e0f5fa"]};
+const CATCOL = {lesson:["#4f46e5","#e9e8fd"], pres:["#ea580c","#fdeadb"], work:["#2563eb","#e3ecfd"], test:["#e11d48","#fde4ea"],
+  game:["#7c3aed","#efe6fe"], story:["#0d9488","#dcf3ef"], art:["#db2777","#fce4f1"], summary:["#16a34a","#e2f5e8"], more:["#64748b","#eceff4"]};
+// 6: the button says what it does
+FMT.gamma = ["🖥️", "Gamma", "#9333ea", "#f3e8ff"];
+const VERB = {gamma:"פתחו מצגת", pdf:"PDF להדפסה", word:"Word לעריכה", ppt:"פתחו מצגת", video:"▶ צפו בסרטון", game:"🎮 שחקו", web:"פתחו קישור",
+  folder:"פתחו תיקייה", excel:"פתחו Excel", image:"צפו בתמונה", audio:"▶ האזינו"};
+const FILTERS = [["","הכל"],["pdf","להדפסה"],["word","לעריכה"],["ppt","מצגות"],["video","סרטונים"],["game","משחקים מקוונים"],["fav","♥ השמורים שלי"]];
+let D, state = {tab:null, q:"", fmt:"", src:"", grade:"", sort:"cv"}, PAGE = 40;
+const LS = k => "cat2_" + (D ? D.book : "") + "_" + k;
+const load = (k, d) => { try { return JSON.parse(localStorage.getItem(LS(k))) ?? d; } catch(e) { return d; } };
+const save = (k, v) => { try { localStorage.setItem(LS(k), JSON.stringify(v)); } catch(e) {} };
+let FAV = new Set(), MINE = {};
+// optional second level: D.groups = [{k,l,e}], and each tab names its group in "g" (e.g. eras -> people).
+// A group key is a valid state.tab too: it shows every item of the group's tabs.
+let TG = {};
+const isGroup = k => !!(D.groups && D.groups.some(g => g.k === k));
+const tabLabel = k => ((D.tabs.find(t => t.k === k) || (D.groups || []).find(g => g.k === k)) || {}).l || "";
+const inTab = it => it.tab === state.tab || TG[it.tab] === state.tab;
+const esc = s => String(s).replace(/[&<>"]/g, c => ({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));
+const norm = s => String(s).replace(/[֑-ׇ]/g, "").toLowerCase();
+const keyOf = it => it.files[0].id;
+const idsOf = it => it.files.map(f => f.id).concat(it.dup || []);
+
+function rating(it) {
+  const R = window.__ratingsApi && window.__ratingsApi.ratingsCache;
+  let sum = 0, count = 0;
+  if (R) idsOf(it).forEach(id => { const r = R.get(id); if (r) { sum += r.sum || 0; count += r.count || 0; } });
+  return {avg: count ? sum / count : 0, count};
+}
+
+function visibleItems() {
+  const q = norm(state.q.trim());
+  return D.items.filter(it => {
+    if (state.fmt === "fav") { if (!FAV.has(keyOf(it))) return false; }
+    else if (state.fmt && !it.files.some(f => f.f.replace("achiya:", "") === state.fmt || (state.fmt === "ppt" && f.f === "gamma"))) return false;
+    if (state.src && it.s !== state.src) return false;
+    if (state.grade && it.gr && it.gr !== state.grade) return false;   // unknown grade stays visible
+    if (q) return norm(it.t).includes(q);
+    if (state.fmt === "fav") return true;
+    return inTab(it);
+  });
+}
+
+function renderTabs() {
+  const cnt = {}; D.items.forEach(i => { cnt[i.tab] = (cnt[i.tab] || 0) + 1; if (TG[i.tab]) cnt[TG[i.tab]] = (cnt[TG[i.tab]] || 0) + 1; });
+  if (D.groups) return renderGroupTabs(cnt);
+  const box = document.getElementById("tabs");
+  if (D.tabs.some(t => t.img)) {   // picture tabs: "name · grade" -> a card with the name, the grade under it and the count
+    box.classList.add("big");
+    box.innerHTML = D.tabs.map(t => { const [name, sub] = t.l.split(" · ");
+      return `<button class="tab tile${t.k === state.tab && !state.q && state.fmt !== "fav" ? " on" : ""}" data-k="${esc(t.k)}" title="${esc(t.l)}">` +
+        (t.img ? `<img src="${esc(t.img)}" alt="" loading="lazy">` : "") +
+        `<span class="tl"><b>${t.e} ${esc(name.split(":")[0])}</b>${sub ? `<small>${esc(sub)}</small>` : ""}</span><span class="n">${cnt[t.k] || 0}</span></button>`; }).join("");
+    return;
+  }
+  const aux = ["general", "skills"], one = (t, cls) =>
+    `<button class="tab${cls}${t.k === state.tab && !state.q && state.fmt !== "fav" ? " on" : ""}" data-k="${esc(t.k)}" title="${esc(t.l)}">${t.e} ${esc(t.l.split(":")[0])}<span class="n">${cnt[t.k] || 0}</span></button>`;
+  document.getElementById("tabs").innerHTML = D.tabs.filter(t => aux.includes(t.k)).map(t => one(t, " aux")).join("") +
+    '<span class="tabsep"></span>' + D.tabs.filter(t => !aux.includes(t.k)).map(t => one(t, "")).join("");
+}
+
+function renderGroupTabs(cnt) {
+  const live = !state.q && state.fmt !== "fav", cur = live ? (isGroup(state.tab) ? state.tab : TG[state.tab]) : null;
+  const one = (t, cls) => `<button class="tab${cls}${live && t.k === state.tab ? " on" : ""}" data-k="${esc(t.k)}" title="${esc(t.l)}${t.y ? " · " + esc(t.y) : ""}">${t.e} ${esc(t.l.split(":")[0])}<span class="n">${cnt[t.k] || 0}</span></button>`;
+  document.getElementById("tabs").innerHTML = D.tabs.filter(t => !t.g).map(t => one(t, " aux")).join("") + '<span class="tabsep"></span>' +
+    D.groups.filter(g => cnt[g.k]).map(g => one(g, " grp" + (cur === g.k && g.k !== state.tab ? " in" : ""))).join("");
+  const sub = document.getElementById("subtabs");
+  sub.innerHTML = cur ? D.tabs.filter(t => t.g === cur && cnt[t.k]).map(t => one(t, "")).join("") : "";
+  const on = sub.querySelector(".tab.on");
+  if (on && sub.scrollWidth > sub.clientWidth) on.scrollIntoView({block: "nearest", inline: "center"});
+}
+
+function rowHtml(it, showTab) {
+  const r = rating(it), k = keyOf(it), mine = MINE[k] || 0;
+  const tabL = showTab ? tabLabel(it.tab).split(":")[0] : "";
+  const icon = (FMT[it.files[0].f.replace("achiya:", "")] || FMT.web)[0];
+  const btns = it.files.map(btnHtml).join("");
+  const stars = [1,2,3,4,5].map(v => `<button class="${v <= mine ? "on" : ""}" data-rate="${v}" aria-label="דירוג ${v}">★</button>`).join("");
+  return `<div class="row" data-id="${esc(k)}">
+    ${thumbHtml(it, icon)}
+    <div class="ti"><div class="name" title="${esc(it.t)}">${esc(it.t)}</div>
+      <div class="meta">${it.gr ? `<span class="badge grade">${esc(it.gr)}</span>` : ""}${tabL ? `<span class="badge tabname">${esc(tabL)}</span>` : ""}${it.s ? `<span class="badge"${it.also ? ` title="נמצא גם ב: ${esc(it.also.join(", "))}"` : ""}>${esc(it.s)}</span>` : ""}${it.n ? `<span class="badge new">חדש</span>` : ""}</div></div>
+    <div class="btns">${btns}</div>
+    <div class="side"><button class="rate${r.count ? " has" : ""}" data-ratebtn="1" title="דירוג משותף של המורים">${rateText(r)}</button><span class="picker">${stars}</span>
+      <button class="fav${FAV.has(k) ? " on" : ""}" data-fav="1" title="שמירה ברשימה האישית שלי">${FAV.has(k) ? "♥" : "♡"}</button></div>
+  </div>`;
+}
+
+// a picture of the material itself: the first page of a Drive file, or the frame of a YouTube video
+function thumbOf(it) {
+  if (it.im) return {src: it.im, big: it.im, wide: !it.im.includes("/ach/"), u: it.files[0].u};
+  for (const f of it.files) {
+    if (!/^https?:/.test(f.u) && /^[\w-]{25,}$/.test(f.id))
+      return {src: `https://drive.google.com/thumbnail?id=${f.id}&sz=w320`, big: `https://drive.google.com/thumbnail?id=${f.id}&sz=w640`, wide: f.f === "ppt", u: viewHref(f)};
+    const y = f.u.match(/(?:youtu\.be\/|[?&]v=|\/shorts\/|\/embed\/)([\w-]{11})/);
+    if (y) return {src: `https://i.ytimg.com/vi/${y[1]}/mqdefault.jpg`, big: `https://i.ytimg.com/vi/${y[1]}/hqdefault.jpg`, wide: true, vid: true, u: f.u};
+    const d = f.f !== "folder" && f.u.match(/(?:drive|docs)\.google\.com\/(?:file\/d\/|(?:document|presentation|spreadsheets)\/d\/|open\?id=|uc\?(?:export=\w+&)?id=)([\w-]{20,})/);
+    if (d) return {src: `https://drive.google.com/thumbnail?id=${d[1]}&sz=w320`, big: `https://drive.google.com/thumbnail?id=${d[1]}&sz=w640`, wide: f.f === "ppt", u: f.u};
+  }
+  return null;
+}
+function thumbHtml(it, icon) {
+  const m = FMT[it.files[0].f.replace("achiya:", "")] || FMT.web, t = thumbOf(it);
+  const fb = `<span class="fb" style="background:${m[3]}">${icon}</span>`;
+  if (!t) return `<a class="th noimg" href="${esc(it.files[0].u)}" target="_blank" rel="noopener" aria-hidden="true" tabindex="-1">${fb}</a>`;
+  return `<a class="th${t.wide ? " wide" : ""}${t.vid ? " vid" : ""}" href="${esc(t.u)}" target="_blank" rel="noopener" tabindex="-1" data-big="${esc(t.big)}">` +
+    `<img src="${esc(t.src)}" alt="" loading="lazy" referrerpolicy="no-referrer" onerror="this.parentNode.classList.add('noimg')">${fb}</a>`;
+}
+function rateText(r) { return r.count ? `★ ${r.avg.toFixed(1)} (${r.count})` : "☆ דרגו"; }
+// a file kept in git (this site or a <slug>-files repo on GitHub Pages): Word / PowerPoint open in the Office viewer
+const inGit = u => !/^https?:/.test(u) || /^https:\/\/yudataub\.github\.io\//.test(u);
+function viewHref(f) {
+  if (!inGit(f.u)) return f.u;
+  const abs = new URL(f.u, location.href).href, lim = f.f === "excel" ? 5e6 : 10e6;
+  return ["word", "ppt", "excel"].includes(f.f) && f.b && f.b <= lim ? "https://view.officeapps.live.com/op/view.aspx?src=" + encodeURIComponent(abs) : abs;
+}
+function btnHtml(file) {
+  const ach = file.f.startsWith("achiya:"), k = file.f.replace("achiya:", ""), m = FMT[k] || FMT.web;
+  const text = ach ? (k !== "web" ? m[1] + " · באתר אחיה" : "באתר אחיה") : (VERB[k] || m[1]);
+  const local = inGit(file.u), href = viewHref(file);
+  return `<a class="btn" style="color:${m[2]};background:${m[3]};border-color:${m[3]}" href="${esc(href)}" target="_blank" rel="noopener">${text}${file.z ? ` <span class="sz">· ${esc(file.z)}</span>` : ""}</a>` +
+    (local && href !== new URL(file.u, location.href).href ? `<a class="btn dl" href="${esc(file.u)}" download title="הורדת הקובץ">⬇️</a>` : "");
+}
+function sortItems(arr) {
+  const abc = (a, b) => a.t.localeCompare(b.t, "he", {numeric: true});
+  if (state.sort === "abc") return arr.sort(abc);
+  if (state.sort === "cv")   // by chapter and verse; materials that name no chapter come after, alphabetically
+    return arr.sort((a, b) => (!!b.p - !!a.p) || (a.p && b.p && (a.p[0] - b.p[0] || a.p[1] - b.p[1])) || abc(a, b));
+  const score = i => { const r = rating(i); return r.avg * Math.min(r.count, 3); };
+  return arr.sort((a, b) => (score(b) - score(a)) || abc(a, b));
+}
+
+function renderActive() {
+  const tags = [];
+  if (state.q.trim()) tags.push(["q", "חיפוש: " + state.q.trim()]);
+  if (state.fmt) tags.push(["fmt", FILTERS.find(f => f[0] === state.fmt)[1]]);
+  if (state.grade) tags.push(["grade", state.grade]);
+  if (state.src) tags.push(["src", state.src]);
+  document.getElementById("active").innerHTML = tags.length ? '<span class="lbl">מסננים פעילים:</span>' +
+    tags.map(([k, l]) => `<button class="tag" data-clear="${k}">${esc(l)}<b>×</b></button>`).join("") +
+    (tags.length > 1 ? '<button class="clearall" data-clear="all">ניקוי הכול</button>' : "") : "";
+}
+function clearFilter(k) {
+  if (k === "q" || k === "all") { state.q = ""; document.getElementById("q").value = ""; }
+  if (k === "fmt" || k === "all") { state.fmt = ""; renderChips(); }
+  if (k === "grade" || k === "all") { state.grade = ""; document.getElementById("grade").value = ""; }
+  if (k === "src" || k === "all") { state.src = ""; document.getElementById("src").value = ""; }
+  render();
+}
+function renderCtx(n) {
+  let head;
+  if (state.fmt === "fav") head = "♥ השמורים שלי";
+  else if (state.q.trim()) head = `חיפוש: „${state.q.trim()}”`;
+  else head = tabLabel(state.tab);
+  const all = state.q.trim() || state.fmt === "fav" ? n : D.items.filter(inTab).length;
+  // D.pages: a page of its own for each tab of a group (e.g. "r/" -> r/<tab>.html)
+  const pg = D.pages && !state.q.trim() && state.fmt !== "fav" && D.tabs.some(t => t.k === state.tab && t.g && !t.k.startsWith("gen-"))
+    ? `<a class="pglink" href="${esc(D.pages + state.tab)}.html">📄 הדף של ${esc(head.split(":")[0])}</a>` : "";
+  document.getElementById("ctx").innerHTML = `<span>${esc(head)}</span><span class="cn">${n === all ? `${n} חומרים` : `נמצאו ${n} מתוך ${all} חומרים`}</span>${pg}`;
+}
+function render() {
+  renderTabs(); renderActive();
+  const items = visibleItems(), main = document.getElementById("main");
+  renderCtx(items.length);
+  const cross = !!state.q.trim() || state.fmt === "fav" || isGroup(state.tab);
+  if (!items.length) { main.innerHTML = `<div class="empty">${state.fmt === "fav" ? "עוד לא שמרתם חומרים – לוחצים על ♡ ליד חומר כדי לשמור אותו כאן" : "לא נמצאו חומרים. נסו מילה אחרת או לשונית אחרת."}</div>`; return; }
+  const byCat = {}; items.forEach(i => (byCat[i.c] = byCat[i.c] || []).push(i));
+  main.innerHTML = D.cats.filter(c => byCat[c.k]).map(c => {
+    const list = sortItems(byCat[c.k]);
+    const first = list.slice(0, PAGE).map(i => rowHtml(i, cross)).join("");
+    const rest = list.length > PAGE ? `<button class="more" data-cat="${c.k}">הצגת כל ${list.length}</button>` : "";
+    const cc = CATCOL[c.k] || CATCOL.more;
+    return `<details class="cat" open data-cat="${c.k}" style="--cc:${cc[0]};--cs:${cc[1]}"><summary><span><span class="ce">${c.e}</span>${esc(c.l)}</span><span class="cnt">${list.length}</span></summary><div class="rows">${first}</div>${rest}</details>`;
+  }).join("");
+  loadRatings(items);
+}
+
+async function loadRatings(items) {
+  const api = window.__ratingsApi; if (!api) return;
+  const ids = items.slice(0, 400).flatMap(idsOf);
+  const before = api.ratingsCache.size;
+  await api.fetchRatings(ids);
+  if (api.ratingsCache.size !== before) document.querySelectorAll(".row").forEach(row => {
+    const it = BYKEY[row.dataset.id]; if (!it) return;
+    const r = rating(it), b = row.querySelector(".rate"); b.textContent = rateText(r); b.classList.toggle("has", !!r.count);
+  });
+}
+
+let BYKEY = {};
+function setTab(k) { state.tab = k; state.q = ""; document.getElementById("q").value = ""; if (state.fmt === "fav") state.fmt = ""; history.replaceState(null, "", "#" + encodeURIComponent(k)); renderChips(); render(); window.scrollTo({top: 0}); }
+function renderChips() {
+  document.getElementById("fmt").innerHTML = FILTERS.map(([k, l]) => `<button class="chip${state.fmt === k ? " on" : ""}" data-fmt="${k}">${l}</button>`).join("");
+}
+
+document.addEventListener("click", async e => {
+  const v = e.target.closest("[data-view]"); if (v) return setView(v.dataset.view);
+  const t = e.target.closest("[data-k],[data-fmt],[data-cat].more,[data-rate],[data-fav],[data-ratebtn],[data-clear]");
+  const mineP = t && t.closest(".side") ? t.closest(".side").querySelector(".picker") : null;
+  document.querySelectorAll(".picker.open").forEach(p => { if (p !== mineP) p.classList.remove("open"); });
+  if (!t) return;
+  if (t.dataset.clear !== undefined) return clearFilter(t.dataset.clear);
+  if (t.dataset.ratebtn) { mineP.classList.toggle("open"); return; }
+  if (t.dataset.k !== undefined) return setTab(t.dataset.k);
+  if (t.dataset.fmt !== undefined) { state.fmt = state.fmt === t.dataset.fmt ? "" : t.dataset.fmt; renderChips(); return render(); }
+  if (t.classList.contains("more")) {
+    const c = t.dataset.cat, sec = t.closest("details");
+    const list = sortItems(visibleItems().filter(i => i.c === c));
+    t.remove(); sec.querySelector(".rows").insertAdjacentHTML("beforeend", list.slice(PAGE).map(i => rowHtml(i, !!state.q.trim() || state.fmt === "fav" || isGroup(state.tab))).join(""));
+    return loadRatings(list);
+  }
+  const row = t.closest(".row"); if (!row) return; const k = row.dataset.id;
+  if (t.dataset.fav) { FAV.has(k) ? FAV.delete(k) : FAV.add(k); save("fav", [...FAV]); t.classList.toggle("on"); t.textContent = FAV.has(k) ? "♥" : "♡"; return; }
+  if (t.dataset.rate) {
+    const v = +t.dataset.rate, old = MINE[k] || 0; if (v === old) return;
+    MINE[k] = v; save("mine", MINE);
+    row.querySelectorAll(".picker button").forEach(b => b.classList.toggle("on", +b.dataset.rate <= v));
+    row.querySelector(".picker").classList.remove("open");
+    try { await window.__ratingsApi.submitRating(k, v, old); window.__ratingsApi.ratingsCache.delete(k); loadRatings([BYKEY[k]]); } catch (err) { console.error(err); }
+  }
+});
+let qTimer; document.getElementById("q").addEventListener("input", e => { clearTimeout(qTimer); qTimer = setTimeout(() => { state.q = e.target.value; render(); }, 200); });
+document.getElementById("src").addEventListener("change", e => { state.src = e.target.value; render(); });
+document.getElementById("grade").addEventListener("change", e => { state.grade = e.target.value; render(); });
+document.getElementById("sort").addEventListener("change", e => { state.sort = e.target.value; render(); });
+window.addEventListener("ratings-ready", () => D && render());
+function setView(v) {
+  document.getElementById("main").classList.toggle("grid", v === "grid");
+  document.querySelectorAll("[data-view]").forEach(b => b.classList.toggle("on", b.dataset.view === v));
+  try { localStorage.setItem("cat2_view", v); } catch (e) {}
+}
+// hovering a thumbnail (mouse only) shows a larger picture of the page
+const peek = document.body.appendChild(Object.assign(document.createElement("div"), {id: "peek"}));
+document.addEventListener("mouseover", e => {
+  const th = e.target.closest(".th[data-big]");
+  if (!th || th.classList.contains("noimg") || document.getElementById("main").classList.contains("grid") || !matchMedia("(hover:hover)").matches) { peek.style.display = "none"; return; }
+  const r = th.getBoundingClientRect();
+  peek.innerHTML = `<img src="${th.dataset.big}" alt="" referrerpolicy="no-referrer">`;
+  peek.style.display = "block";
+  peek.style.top = Math.max(8, Math.min(r.top - 40, innerHeight - 460)) + "px";
+  peek.style.right = (innerWidth - r.left + 12) + "px";
+});
+const toolsEl = document.querySelector(".tools");
+const totop = document.body.appendChild(Object.assign(document.createElement("button"), {id: "totop", textContent: "🔍 חיפוש וסינון"}));
+totop.addEventListener("click", () => window.scrollTo({top: 0, behavior: "smooth"}));
+addEventListener("scroll", () => totop.classList.toggle("show", toolsEl.getBoundingClientRect().bottom < 0), {passive: true});
+let savedView = "grid"; try { savedView = localStorage.getItem("cat2_view") || "grid"; } catch (e) {}
+setView(savedView);
+
+fetch("data.json").then(r => r.json()).then(data => {
+  D = data; FAV = new Set(load("fav", [])); MINE = load("mine", {});
+  D.items.forEach(i => BYKEY[keyOf(i)] = i);
+  D.tabs.forEach(t => { if (t.g) TG[t.k] = t.g; });
+  const T = D.title || "חומש " + D.book, unit = D.unit || "פרשות", one = D.one || (unit === "פרקים" ? "פרק" : "פרשה");
+  if (D.cvLabel) document.querySelector('#sort option[value="cv"]').textContent = D.cvLabel;
+  document.title = "קטלוג חומרים – " + T;
+  if (D.hero && D.heroStyle === "side") {   // a picture from the materials, shown whole in a frame beside the title
+    const hd = document.querySelector("header"), wrap = hd.querySelector(".wrap"), txt = document.createElement("div");
+    txt.className = "htext"; while (wrap.firstChild) txt.appendChild(wrap.firstChild);
+    wrap.appendChild(txt);
+    wrap.insertAdjacentHTML("beforeend", `<img class="heroimg" src="${D.hero}" alt="" style="object-position:${D.heroPos || "center"}">`);
+    hd.classList.add("hero-side");
+  } else if (D.hero) {   // a picture of the book behind the title; the dark side keeps the text readable
+    const hd = document.querySelector("header");
+    hd.classList.add("hero");
+    hd.style.backgroundImage = `linear-gradient(to left, rgba(30,27,75,.92) 0%, rgba(30,27,75,.72) 38%, rgba(30,27,75,.15) 75%, rgba(30,27,75,0)), url("${D.hero}")`;
+  }
+  document.getElementById("title").textContent = "קטלוג חומרים – " + T;
+  if (D.q) document.getElementById("q").placeholder = D.q;
+  const files = D.items.reduce((n, i) => n + i.files.length, 0);
+  document.getElementById("sub").textContent = `${D.items.length.toLocaleString("he")} חומרים לפי ${unit} • בוחרים ${one}, ואז מה צריך לשיעור`;
+  const srcs = [...new Set(D.items.map(i => i.s).filter(Boolean))].sort((a, b) => a.localeCompare(b, "he"));
+  document.getElementById("src").insertAdjacentHTML("beforeend", srcs.map(s => `<option>${esc(s)}</option>`).join(""));
+  const grades = ["הגיל הרך", "כיתות א, ב", "כיתות ג, ד, ה", "כיתות ו, ז, ח", "מורים", "הורים"].filter(g => D.items.some(i => i.gr === g));
+  document.getElementById("grade").insertAdjacentHTML("beforeend", grades.map(g => `<option value="${esc(g)}">${esc(g)}</option>`).join(""));
+  if (!grades.length) document.getElementById("grade").style.display = "none";
+  const h = decodeURIComponent(location.hash.slice(1));
+  state.tab = D.tabs.some(t => t.k === h) || isGroup(h) ? h : D.start || (D.tabs[1] || D.tabs[0]).k;
+  renderChips(); render();
+});
+</script>
+<script type="module">
+import { initializeApp } from "https://www.gstatic.com/firebasejs/10.13.0/firebase-app.js";
+import { getFirestore, doc, getDocs, collection, query, where, documentId, runTransaction } from "https://www.gstatic.com/firebasejs/10.13.0/firebase-firestore.js";
+const firebaseConfig = {"apiKey": ["AIza", "SyBgjtJk9Wrw-lPpFlPBaQ6RHfqQ58R58LA"].join(""), "authDomain": "gamma-catalog.firebaseapp.com", "projectId": "gamma-catalog", "storageBucket": "gamma-catalog.firebasestorage.app", "messagingSenderId": "184606827021", "appId": "1:184606827021:web:e39a832b5bc12fe87aeb44"};
+const db = getFirestore(initializeApp(firebaseConfig));
+const ratingsCache = new Map();
+async function fetchRatings(ids) {
+  const need = [...new Set(ids)].filter(id => !ratingsCache.has(id));
+  for (let i = 0; i < need.length; i += 10) {
+    const b = need.slice(i, i + 10); b.forEach(id => ratingsCache.set(id, {sum: 0, count: 0}));
+    try { (await getDocs(query(collection(db, "ratings"), where(documentId(), "in", b)))).forEach(d => ratingsCache.set(d.id, d.data())); }
+    catch (e) { console.error("fetchRatings failed", e); }
+  }
+}
+async function submitRating(id, newValue, oldValue) {
+  const ref = doc(db, "ratings", id);
+  await runTransaction(db, async tx => {
+    const snap = await tx.get(ref); let sum = 0, count = 0;
+    if (snap.exists()) { sum = snap.data().sum || 0; count = snap.data().count || 0; }
+    if (oldValue) sum += newValue - oldValue; else { sum += newValue; count += 1; }
+    tx.set(ref, {sum, count});
+  });
+}
+window.__ratingsApi = {fetchRatings, submitRating, ratingsCache};
+window.dispatchEvent(new Event("ratings-ready"));
+</script>
+</body>
+</html>
