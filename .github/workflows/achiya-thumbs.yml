@@ -1,0 +1,26 @@
+# Achiya pictures on GitHub's server: Actions -> "Achiya pictures" -> Run workflow.
+name: Achiya pictures
+on:
+  workflow_dispatch:
+permissions:
+  contents: write
+concurrency: achiya-thumbs
+jobs:
+  shoot:
+    runs-on: ubuntu-latest
+    timeout-minutes: 120
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - run: pip install pymupdf pillow
+      - run: python .github/achiya_thumbs.py
+      - name: Save
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898729+github-actions[bot]@users.noreply.github.com"
+          git add data.json img/ach
+          git diff --cached --quiet && exit 0
+          git commit -m "תמונות אחיה (צולמו בשרת של GitHub)"
+          for i in 1 2 3; do git pull --rebase -q && git push && exit 0; sleep 10; done; exit 1
