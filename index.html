@@ -217,7 +217,7 @@ function visibleItems() {
     if (state.fmt === "fav") { if (!FAV.has(keyOf(it))) return false; }
     else if (state.fmt && !it.files.some(f => f.f.replace("achiya:", "") === state.fmt || (state.fmt === "ppt" && f.f === "gamma"))) return false;
     if (state.src && it.s !== state.src) return false;
-    if (state.grade && it.gr && it.gr !== state.grade) return false;   // unknown grade stays visible
+    if (state.grade && it.gr && it.gr !== state.grade && !(it.grs && it.grs.includes(state.grade))) return false;   // unknown grade stays visible; grs = every grade the item is taught in
     if (q) return norm(it.t).includes(q);
     if (state.fmt === "fav") return true;
     return inTab(it);
@@ -466,7 +466,7 @@ fetch("data.json").then(r => r.json()).then(data => {
   document.getElementById("sub").textContent = `${D.items.length.toLocaleString("he")} חומרים לפי ${unit} • בוחרים ${one}, ואז מה צריך לשיעור`;
   const srcs = [...new Set(D.items.map(i => i.s).filter(Boolean))].sort((a, b) => a.localeCompare(b, "he"));
   document.getElementById("src").insertAdjacentHTML("beforeend", srcs.map(s => `<option>${esc(s)}</option>`).join(""));
-  const grades = ["הגיל הרך", "כיתות א, ב", "כיתות ג, ד, ה", "כיתות ו, ז, ח", "מורים", "הורים"].filter(g => D.items.some(i => i.gr === g));
+  const grades = (D.grades || ["הגיל הרך", "כיתות א, ב", "כיתות ג, ד, ה", "כיתות ו, ז, ח", "מורים", "הורים"]).filter(g => D.items.some(i => i.gr === g || (i.grs && i.grs.includes(g))));   // D.grades: a catalog's own grade list (halacha: single grades, by the Ministry)
   document.getElementById("grade").insertAdjacentHTML("beforeend", grades.map(g => `<option value="${esc(g)}">${esc(g)}</option>`).join(""));
   if (!grades.length) document.getElementById("grade").style.display = "none";
   const h = decodeURIComponent(location.hash.slice(1));
