@@ -305,12 +305,14 @@ function btnHtml(file) {
     (local && href !== new URL(file.u, location.href).href ? `<a class="btn dl" href="${esc(file.u)}" download title="הורדת הקובץ">⬇️</a>` : "");
 }
 function sortItems(arr) {
-  const abc = (a, b) => a.t.localeCompare(b.t, "he", {numeric: true});
+  // the user's own materials first, in every order (11.10, the user's request) – see markOwn
+  const own = (a, b) => (b._own || 0) - (a._own || 0);
+  const abc = (a, b) => own(a, b) || a.t.localeCompare(b.t, "he", {numeric: true});
   if (state.sort === "abc") return arr.sort(abc);
   if (state.sort === "cv")   // by chapter and verse; materials that name no chapter come after, alphabetically
-    return arr.sort((a, b) => (!!b.p - !!a.p) || (a.p && b.p && (a.p[0] - b.p[0] || a.p[1] - b.p[1])) || abc(a, b));
+    return arr.sort((a, b) => own(a, b) || (!!b.p - !!a.p) || (a.p && b.p && (a.p[0] - b.p[0] || a.p[1] - b.p[1])) || abc(a, b));
   const score = i => { const r = rating(i); return r.avg * Math.min(r.count, 3); };
-  return arr.sort((a, b) => (score(b) - score(a)) || abc(a, b));
+  return arr.sort((a, b) => own(a, b) || (score(b) - score(a)) || abc(a, b));
 }
 
 function renderActive() {
@@ -429,6 +431,17 @@ addEventListener("scroll", () => totop.classList.toggle("show", toolsEl.getBound
 let savedView = "grid"; try { savedView = localStorage.getItem("cat2_view") || "grid"; } catch (e) {}
 setView(savedView);
 
+// which materials are the user's own (his Drive, his sites, his Gamma decks – not מורשה, חומרים יפים, the
+// WhatsApp archives…): decided when the site search is built (catalog-kit/mine.py → search/mine.json)
+let OWN = null;
+const ownKey = u => { const m = u.match(/(?:drive|docs)\.google\.com\/(?:file\/d\/|(?:document|presentation|spreadsheets)\/d\/|open\?id=|drive\/folders\/)([\w-]{20,})/); return m ? m[1] : u; };
+function markOwn(redraw) {
+  if (!OWN || !D) return;
+  let n = 0; D.items.forEach(i => n += i._own = OWN.has(ownKey(i.files[0].u)) ? 1 : 0);
+  if (redraw && n) render();
+}
+fetch("https://www.kol-toda.co.il/search/mine.json").then(r => r.json()).then(a => { OWN = new Set(a); markOwn(true); }).catch(() => {});
+
 fetch("data.json").then(r => r.json()).then(data => {
   D = data; FAV = new Set(load("fav", [])); MINE = load("mine", {});
   D.items.forEach(i => BYKEY[keyOf(i)] = i);
@@ -458,7 +471,7 @@ fetch("data.json").then(r => r.json()).then(data => {
   if (!grades.length) document.getElementById("grade").style.display = "none";
   const h = decodeURIComponent(location.hash.slice(1));
   state.tab = D.tabs.some(t => t.k === h) || isGroup(h) ? h : D.start || (D.tabs[1] || D.tabs[0]).k;
-  renderChips(); render();
+  renderChips(); markOwn(false); render();
 });
 </script>
 <script type="module">
