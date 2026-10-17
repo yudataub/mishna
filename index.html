@@ -381,6 +381,8 @@ const DOC = location.href.split("#")[0];
 function tabUrl(k) {
   if (!(D && D.share && (D.tabs.some(t => t.k === k) || isGroup(k)))) return "#" + encodeURIComponent(k);   // a tab or a group (month, era…)
   if (!document.querySelector("base")) { const b = document.createElement("base"); b.href = DOC; document.head.prepend(b); }
+  // shown inside another page (kol-toda.co.il/mishna/ frames the repo): that page sets its own address bar
+  if (window.parent !== window) try { window.parent.postMessage({kt: "share", k}, "*"); } catch (e) {}
   return new URL(D.share + encodeURIComponent(k) + ".html", DOC).href;
 }
 function setTab(k) { state.tab = k; state.q = ""; document.getElementById("q").value = ""; if (state.fmt === "fav") state.fmt = ""; history.replaceState(null, "", tabUrl(k)); renderChips(); render(); window.scrollTo({top: 0}); }
