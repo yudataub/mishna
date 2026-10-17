@@ -296,7 +296,7 @@ function rateText(r) { return r.count ? `★ ${r.avg.toFixed(1)} (${r.count})` :
 const inGit = u => !/^https?:/.test(u) || /^https:\/\/yudataub\.github\.io\//.test(u);
 function viewHref(f) {
   if (!inGit(f.u)) return f.u;
-  const abs = new URL(f.u, location.href).href, lim = f.f === "excel" ? 5e6 : 10e6;
+  const abs = new URL(f.u, document.baseURI).href, lim = f.f === "excel" ? 5e6 : 10e6;
   return ["word", "ppt", "excel"].includes(f.f) && f.b && f.b <= lim ? "https://view.officeapps.live.com/op/view.aspx?src=" + encodeURIComponent(abs) : abs;
 }
 function btnHtml(file) {
@@ -304,7 +304,7 @@ function btnHtml(file) {
   const text = ach ? (k !== "web" ? m[1] + " · באתר אחיה" : "באתר אחיה") : (VERB[k] || m[1]);
   const local = inGit(file.u), href = viewHref(file);
   return `<a class="btn" style="color:${m[2]};background:${m[3]};border-color:${m[3]}" href="${esc(href)}" target="_blank" rel="noopener">${text}${file.z ? ` <span class="sz">· ${esc(file.z)}</span>` : ""}</a>` +
-    (local && href !== new URL(file.u, location.href).href ? `<a class="btn dl" href="${esc(file.u)}" download title="הורדת הקובץ">⬇️</a>` : "");
+    (local && href !== new URL(file.u, document.baseURI).href ? `<a class="btn dl" href="${esc(file.u)}" download title="הורדת הקובץ">⬇️</a>` : "");
 }
 function sortItems(arr) {
   // the user's own materials first, in every order (11.10, the user's request) – see markOwn
@@ -374,7 +374,16 @@ async function loadRatings(items) {
 }
 
 let BYKEY = {};
-function setTab(k) { state.tab = k; state.q = ""; document.getElementById("q").value = ""; if (state.fmt === "fav") state.fmt = ""; history.replaceState(null, "", "#" + encodeURIComponent(k)); renderChips(); render(); window.scrollTo({top: 0}); }
+// D.share (17.10, the special-days catalog): every tab has a share page of its own, <share><tab>.html (its name and a
+// big picture on WhatsApp; it forwards back to #<tab>). The address bar shows that page, so the address a teacher
+// copies is the one that shares well. A <base> keeps every relative link (data, pictures, files) on the catalog itself.
+const DOC = location.href.split("#")[0];
+function tabUrl(k) {
+  if (!(D && D.share && (D.tabs.some(t => t.k === k) || isGroup(k)))) return "#" + encodeURIComponent(k);   // a tab or a group (month, era…)
+  if (!document.querySelector("base")) { const b = document.createElement("base"); b.href = DOC; document.head.prepend(b); }
+  return new URL(D.share + encodeURIComponent(k) + ".html", DOC).href;
+}
+function setTab(k) { state.tab = k; state.q = ""; document.getElementById("q").value = ""; if (state.fmt === "fav") state.fmt = ""; history.replaceState(null, "", tabUrl(k)); renderChips(); render(); window.scrollTo({top: 0}); }
 function renderChips() {
   document.getElementById("fmt").innerHTML = FILTERS.map(([k, l]) => `<button class="chip${state.fmt === k ? " on" : ""}" data-fmt="${k}">${l}</button>`).join("");
 }
@@ -473,6 +482,7 @@ fetch("data.json").then(r => r.json()).then(data => {
   if (!grades.length) document.getElementById("grade").style.display = "none";
   const h = decodeURIComponent(location.hash.slice(1));
   state.tab = D.tabs.some(t => t.k === h) || isGroup(h) ? h : D.start || (D.tabs[1] || D.tabs[0]).k;
+  if (D.share && h === state.tab) history.replaceState(null, "", tabUrl(state.tab));   // arrived from a share page / an old #link
   renderChips(); markOwn(false); render();
 });
 </script>
