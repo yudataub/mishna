@@ -116,7 +116,7 @@ main{padding:8px 16px 60px}
 .meta{display:flex;gap:5px;flex-wrap:wrap;margin-top:3px}
 .meta:empty{display:none}
 .badge{font-size:.68rem;border-radius:999px;padding:0 7px;background:var(--accent-soft);color:#4338ca;white-space:nowrap}
-.badge.tabname{background:#ecfdf5;color:#047857}
+.badge.tabname{background:#ecfdf5;color:#047857;border:0;font-family:inherit;cursor:pointer}.badge.tabname:hover{background:#d1fae5;text-decoration:underline}
 .badge.grade{background:#fdf2f8;color:#be185d}
 .badge.new{background:#fff7ed;color:#c2410c}
 .btns{display:flex;gap:6px;flex-wrap:wrap}
@@ -264,7 +264,7 @@ function rowHtml(it, showTab) {
   return `<div class="row" data-id="${esc(k)}">
     ${thumbHtml(it, icon)}
     <div class="ti"><div class="name" title="${esc(it.t)}">${esc(it.t)}</div>
-      <div class="meta">${it.gr ? `<span class="badge grade">${esc(it.gr)}</span>` : ""}${tabL ? `<span class="badge tabname">${esc(tabL)}</span>` : ""}${it.s ? `<span class="badge"${it.also ? ` title="נמצא גם ב: ${esc(it.also.join(", "))}"` : ""}>${esc(it.s)}</span>` : ""}${it.n ? `<span class="badge new">חדש</span>` : ""}</div></div>
+      <div class="meta">${it.gr ? `<span class="badge grade">${esc(it.gr)}</span>` : ""}${tabL ? `<button type="button" class="badge tabname" data-k="${esc(it.tab)}" title="לכל החומרים במדור הזה">${esc(tabL)}</button>` : ""}${it.s ? `<span class="badge"${it.also ? ` title="נמצא גם ב: ${esc(it.also.join(", "))}"` : ""}>${esc(it.s)}</span>` : ""}${it.n ? `<span class="badge new">חדש</span>` : ""}</div></div>
     <div class="btns">${btns}</div>
     <div class="side"><button class="rate${r.count ? " has" : ""}" data-ratebtn="1" title="דירוג משותף של המורים">${rateText(r)}</button><span class="picker">${stars}</span>
       <button class="fav${FAV.has(k) ? " on" : ""}" data-fav="1" title="שמירה ברשימה האישית שלי">${FAV.has(k) ? "♥" : "♡"}</button></div>
