@@ -308,7 +308,9 @@ function btnHtml(file) {
 }
 function sortItems(arr) {
   // the user's own materials first, in every order (11.10, the user's request) – see markOwn
-  const own = (a, b) => (b._own || 0) - (a._own || 0);
+  // presentations before videos, always (21.10, the user: "שתמיד מצגות יהיו לפני סרטונים"); then the user's own first
+  const kind = i => i.files.some(f => /^(achiya:)?(ppt|gamma)$/.test(f.f)) ? 0 : i.files.every(f => /^(achiya:)?video$/.test(f.f)) ? 2 : 1;
+  const own = (a, b) => (kind(a) - kind(b)) || (b._own || 0) - (a._own || 0);
   const abc = (a, b) => own(a, b) || a.t.localeCompare(b.t, "he", {numeric: true});
   if (state.sort === "abc") return arr.sort(abc);
   if (state.sort === "cv")   // by chapter and verse; materials that name no chapter come after, alphabetically
