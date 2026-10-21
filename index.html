@@ -294,8 +294,12 @@ function thumbHtml(it, icon) {
 function rateText(r) { return r.count ? `★ ${r.avg.toFixed(1)} (${r.count})` : "☆ דרגו"; }
 // a file kept in git (this site or a <slug>-files repo on GitHub Pages): Word / PowerPoint open in the Office viewer
 const inGit = u => !/^https?:/.test(u) || /^https:\/\/yudataub\.github\.io\//.test(u);
+// a PowerPoint / Word file on another site downloads instead of opening (21.10, the user: Rachel Imenu's "אל תפיל את
+// המיליון"): the Office viewer opens it – only for hosts it can read (halachayomit.com; the Ministry's meyda blocks it)
+const VIEWABLE = /^https:\/\/(?:www\.)?halachayomit\.com\/.+\.(?:pptx?|ppsx?|docx?|xlsx?)$/i;
 function viewHref(f) {
-  if (!inGit(f.u)) return f.u;
+  if (!inGit(f.u)) return ["word", "ppt", "excel"].includes(f.f) && VIEWABLE.test(f.u.split(/[?#]/)[0]) ?
+    "https://view.officeapps.live.com/op/view.aspx?src=" + encodeURIComponent(f.u) : f.u;
   const abs = new URL(f.u, document.baseURI).href, lim = f.f === "excel" ? 5e6 : 10e6;
   return ["word", "ppt", "excel"].includes(f.f) && f.b && f.b <= lim ? "https://view.officeapps.live.com/op/view.aspx?src=" + encodeURIComponent(abs) : abs;
 }
@@ -304,7 +308,7 @@ function btnHtml(file) {
   const text = ach ? (k !== "web" ? m[1] + " · באתר אחיה" : "באתר אחיה") : (VERB[k] || m[1]);
   const local = inGit(file.u), href = viewHref(file);
   return `<a class="btn" style="color:${m[2]};background:${m[3]};border-color:${m[3]}" href="${esc(href)}" target="_blank" rel="noopener">${text}${file.z ? ` <span class="sz">· ${esc(file.z)}</span>` : ""}</a>` +
-    (local && href !== new URL(file.u, document.baseURI).href ? `<a class="btn dl" href="${esc(file.u)}" download title="הורדת הקובץ">⬇️</a>` : "");
+    (href !== new URL(file.u, document.baseURI).href ? `<a class="btn dl" href="${esc(file.u)}" download title="הורדת הקובץ">⬇️</a>` : "");
 }
 function sortItems(arr) {
   // the user's own materials first, in every order (11.10, the user's request) – see markOwn
