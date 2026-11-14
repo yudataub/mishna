@@ -316,11 +316,13 @@ function sortItems(arr) {
   const kind = i => i.files.some(f => /^(achiya:)?(ppt|gamma)$/.test(f.f)) ? 0 : i.files.every(f => /^(achiya:)?video$/.test(f.f)) ? 2 : 1;
   const own = (a, b) => (kind(a) - kind(b)) || (b._own || 0) - (a._own || 0);
   const abc = (a, b) => own(a, b) || a.t.localeCompare(b.t, "he", {numeric: true});
-  if (state.sort === "abc") return arr.sort(abc);
+  // a rated material goes to the top of every order, by its rating (the user, 14.11.2026)
+  const score = i => { const r = rating(i); return r.count ? r.avg * Math.min(r.count, 3) : (MINE[keyOf(i)] || 0); };
+  arr.forEach(i => i._sc = score(i)); const top = (a, b) => b._sc - a._sc;
+  if (state.sort === "abc") return arr.sort((a, b) => top(a, b) || abc(a, b));
   if (state.sort === "cv")   // by chapter and verse; materials that name no chapter come after, alphabetically
-    return arr.sort((a, b) => own(a, b) || (!!b.p - !!a.p) || (a.p && b.p && (a.p[0] - b.p[0] || a.p[1] - b.p[1])) || abc(a, b));
-  const score = i => { const r = rating(i); return r.avg * Math.min(r.count, 3); };
-  return arr.sort((a, b) => own(a, b) || (score(b) - score(a)) || abc(a, b));
+    return arr.sort((a, b) => top(a, b) || own(a, b) || (!!b.p - !!a.p) || (a.p && b.p && (a.p[0] - b.p[0] || a.p[1] - b.p[1])) || abc(a, b));
+  return arr.sort((a, b) => top(a, b) || own(a, b) || abc(a, b));
 }
 
 function renderActive() {
@@ -518,7 +520,9 @@ async function submitRating(id, newValue, oldValue) {
   });
 }
 window.__ratingsApi = {fetchRatings, submitRating, ratingsCache};
-window.dispatchEvent(new Event("ratings-ready"));
+// every rating is read once (a small collection), so the rated materials sort first in the whole list, not only on screen
+getDocs(collection(db, "ratings")).then(s => s.forEach(d => ratingsCache.set(d.id, d.data()))).catch(e => console.error("ratings failed", e))
+  .then(() => window.dispatchEvent(new Event("ratings-ready")));
 </script>
 </body>
 </html>
